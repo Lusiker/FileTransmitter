@@ -25,8 +25,11 @@ go.work
 # Build outputs
 server.exe
 
-# Deploy package (optional, can be included if desired)
-# deploy/
+# Deploy archives
+deploy.zip
+
+# Frontend build output (use deploy/ for distribution)
+web/dist/
 
 # Temporary files
 tmp/
@@ -43,3 +46,6 @@ web/node_modules/
 .env
 .env.local
 .env.*.local
+
+# Development notes
+TODO.md
