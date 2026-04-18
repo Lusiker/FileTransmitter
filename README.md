@@ -194,6 +194,9 @@ transfer:
 | `chunk_data` | 分片数据（流式转发） |
 | `chunk_ack` | 分片确认 |
 
+## Acknowledgement
+Built with Claude Code + GLM5. Special Thanks to Aliyun Bailian Coding Plan Lite, RIP.
+
 ## License
 
 MIT
