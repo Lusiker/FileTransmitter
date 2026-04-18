@@ -112,7 +112,7 @@ go build -o server.exe ./cmd/server
 # 运行（前端静态文件嵌入）
 ./server.exe
 ```
-
+访问 `http://localhost:8080` 或 `http://<局域网IP>:8080`，依据构建设定修改
 ## 配置说明
 
 `config.yaml` 配置文件：
