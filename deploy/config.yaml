@@ -1,0 +1,17 @@
+server:
+  http_port: 8080
+  discovery_port: 37021
+
+device:
+  id: ""
+  name: ""
+  role: "sender"  # sender or receiver
+
+transfer:
+  chunk_size: 1048576  # 1MB
+  max_concurrent: 3
+  temp_dir: "./tmp"
+
+log:
+  level: "info"
+  format: "text"

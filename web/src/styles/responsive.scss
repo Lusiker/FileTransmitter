@@ -1,0 +1,124 @@
+// Responsive breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 768px,
+  md: 1024px,
+  lg: 1280px
+);
+
+// Responsive mixin
+@mixin respond-to($breakpoint) {
+  $min: map-get($breakpoints, $breakpoint);
+
+  @if $min == 0 {
+    @content;
+  } @else {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+}
+
+// Mobile-first breakpoint utilities
+@mixin mobile-only {
+  @media (max-width: map-get($breakpoints, sm) - 1) {
+    @content;
+  }
+}
+
+@mixin tablet-up {
+  @media (min-width: map-get($breakpoints, sm)) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: map-get($breakpoints, md)) {
+    @content;
+  }
+}
+
+@mixin large-up {
+  @media (min-width: map-get($breakpoints, lg)) {
+    @content;
+  }
+}
+
+// Common responsive styles
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+}
+
+// Mobile-specific adjustments
+@include mobile-only {
+  .el-dialog {
+    width: 95% !important;
+    margin: 5vh auto !important;
+  }
+
+  .el-message-box {
+    width: 90% !important;
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+// Desktop-specific adjustments
+@include desktop-up {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+// Layout utilities
+.page-container {
+  padding: 16px;
+
+  @include tablet-up {
+    padding: 24px;
+  }
+
+  @include desktop-up {
+    padding: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+
+  @include mobile-only {
+    grid-template-columns: 1fr;
+  }
+
+  @include tablet-up {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include large-up {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// Scrollable containers
+.scroll-container {
+  overflow-y: auto;
+
+  @include mobile-only {
+    max-height: calc(100vh - 120px);
+  }
+
+  @include tablet-up {
+    max-height: calc(100vh - 160px);
+  }
+}

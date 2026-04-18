@@ -1,0 +1,29 @@
+[Unit]
+Description=FileTransmitter - Local Network File Transfer
+After=network.target
+
+[Service]
+Type=simple
+User=filetransmitter
+Group=filetransmitter
+WorkingDirectory=/opt/filetransmitter
+ExecStart=/opt/filetransmitter/filetransmitter
+Restart=on-failure
+RestartSec=5s
+
+# Ports
+# HTTP: 8080
+# UDP Discovery: 37021
+
+# Resource limits for constrained devices
+LimitNOFILE=1024
+MemoryMax=256M
+
+# Security
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
